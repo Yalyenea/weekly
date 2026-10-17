@@ -1,0 +1,51 @@
+name: Deploy weekly
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: read
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+      - uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "0.167.0"
+          extended: true
+      - uses: actions/configure-pages@v5
+      - name: Build
+        run: |
+          hugo --cleanDestinationDir --minify
+          npx -y pagefind@1.5.2 --site public
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

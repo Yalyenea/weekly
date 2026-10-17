@@ -1,0 +1,75 @@
+baseURL = "https://weekly.yfff.me/"
+title = "yfff's weekly"
+defaultContentLanguage = "cn"
+defaultContentLanguageInSubdir = false
+disableDefaultLanguageRedirect = true
+hasCJKLanguage = true
+disableKinds = ["taxonomy", "term", "section"]
+
+[params]
+headTitle = "yfff's weekly"
+description = "每周收集值得阅读的文章、研究与工具。"
+mainSections = ["issues"]
+favicon = "/favicon.png"
+math = false
+mathjax = false
+
+  [params.author]
+  name = "yfff"
+  homepage = "https://blog.yfff.me/"
+
+[languages]
+  [languages.cn]
+  contentDir = "content/cn"
+  label = "中文"
+  locale = "zh-CN"
+  weight = 1
+
+  [languages.en]
+  contentDir = "content/en"
+  label = "English"
+  locale = "en-US"
+  weight = 2
+
+[params.giscus]
+  enabled = true
+  repo = "Yalyenea/weekly"
+  repoId = "R_kgDOVNuLHQ"
+  category = "Announcements"
+  categoryId = "DIC_kwDOVNuLHc4DIx3o"
+  mapping = "pathname"
+  strict = "1"
+  reactionsEnabled = "1"
+  emitMetadata = "0"
+  inputPosition = "top"
+  themeLight = "light"
+  themeDark = "dark"
+
+[markup]
+  [markup.tableOfContents]
+  startLevel = 2
+  endLevel = 4
+  ordered = false
+
+  [markup.highlight]
+    noClasses = false
+    style = "rose-pine"
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+    unsafe = true
+
+    [markup.goldmark.extensions]
+    table = true
+    taskList = true
+    footnote = true
+    definitionList = true
+
+      [markup.goldmark.extensions.passthrough]
+      enable = true
+
+        [markup.goldmark.extensions.passthrough.delimiters]
+        block = [["\\[", "\\]"], ["$$", "$$"]]
+        inline = [["\\(", "\\)"], ["$", "$"]]
+
+[permalinks.page]
+issues = "/:contentbasename/"

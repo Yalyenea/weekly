@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Locale }}">
+{{ partial "head.html" . }}
+<body><article class="posts"><div class="row"><div class="col-xs-12">
+{{ partial "header.html" . }}
+<h1>404</h1>
+<p>{{ if eq .Site.Language.Lang "cn" }}页面不存在。{{ else }}Page not found.{{ end }}</p>
+<p><a href="{{ .Site.Home.RelPermalink }}">{{ if eq .Site.Language.Lang "cn" }}返回周刊{{ else }}Back to weekly{{ end }}</a></p>
+</div></div></article>{{ partial "scripts.html" . }}</body></html>

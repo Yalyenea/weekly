@@ -1,0 +1,95 @@
+[navBlog]
+other = "博客"
+
+[navSearch]
+other = "搜索"
+
+[navRss]
+other = "RSS"
+
+[tocTitle]
+other = "目录"
+
+[shortcutTitle]
+other = "快捷键"
+
+[shortcutSubtitle]
+other = "Vim 风格阅读导航"
+
+[shortcutToggle]
+other = "打开或关闭提示"
+
+[shortcutSearch]
+other = "搜索"
+
+[shortcutScrollDown]
+other = "向下滚动"
+
+[shortcutScrollUp]
+other = "向上滚动"
+
+[shortcutHalfPageDown]
+other = "向下半屏"
+
+[shortcutHalfPageUp]
+other = "向上半屏"
+
+[shortcutTop]
+other = "跳到顶部"
+
+[shortcutBottom]
+other = "跳到底部"
+
+[shortcutContent]
+other = "跳到正文"
+
+[shortcutComments]
+other = "跳到评论区"
+
+[shortcutPrev]
+other = "上一篇"
+
+[shortcutNext]
+other = "下一篇"
+
+[shortcutTheme]
+other = "切换主题"
+
+[shortcutClose]
+other = "关闭提示"
+
+[shortcutHintAria]
+other = "显示快捷键帮助"
+
+[themeToggleLabel]
+other = "切换主题"
+
+[themeSwitchToLight]
+other = "切换到浅色模式"
+
+[themeSwitchToDark]
+other = "切换到深色模式"
+
+[langSwitchLabel]
+other = "切换语言"
+
+[shortcutLang]
+other = "切换语言"
+
+[codeCopy]
+other = "复制"
+
+[codeCopied]
+other = "已复制"
+
+[codePlainText]
+other = "文本"
+
+[searchTitle]
+other = "搜索"
+
+[searchPlaceholder]
+other = "搜索周刊"
+
+[issueNavigation]
+other = "周刊导航"
