@@ -1,0 +1,3 @@
+[submodule "themes/yinyang-my-fork"]
+	path = themes/yinyang-my-fork
+	url = https://github.com/Yalyenea/hugo-theme-yinyang-yfff.git

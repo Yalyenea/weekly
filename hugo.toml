@@ -1,5 +1,6 @@
 baseURL = "https://weekly.yfff.me/"
 title = "yfff's weekly"
+theme = "yinyang-my-fork"
 defaultContentLanguage = "cn"
 defaultContentLanguageInSubdir = false
 disableDefaultLanguageRedirect = true
@@ -7,12 +8,10 @@ hasCJKLanguage = true
 disableKinds = ["taxonomy", "term", "section"]
 
 [params]
-headTitle = "yfff's weekly"
+showPostNavigation = true
 description = "每周收集值得阅读的文章、研究与工具。"
-mainSections = ["issues"]
+mainSections = ["weekly"]
 favicon = "/favicon.png"
-math = false
-mathjax = false
 
   [params.author]
   name = "yfff"
@@ -72,4 +71,20 @@ mathjax = false
         inline = [["\\(", "\\)"], ["$", "$"]]
 
 [permalinks.page]
-issues = "/:contentbasename/"
+weekly = "/:contentbasename/"
+
+[languages.cn.params]
+searchPlaceholder = "搜索周刊"
+
+[[languages.cn.menus.main]]
+name = "blog"
+url = "https://blog.yfff.me/"
+weight = 10
+
+[languages.en.params]
+searchPlaceholder = "Search issues"
+
+[[languages.en.menus.main]]
+name = "blog"
+url = "https://blog.yfff.me/en/"
+weight = 10

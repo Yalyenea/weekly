@@ -20,6 +20,8 @@ jobs:
       pages: read
     steps:
       - uses: actions/checkout@v5
+        with:
+          submodules: recursive
       - uses: actions/setup-node@v6
         with:
           node-version: "24"
@@ -30,8 +32,7 @@ jobs:
       - uses: actions/configure-pages@v5
       - name: Build
         run: |
-          hugo --cleanDestinationDir --minify
-          npx -y pagefind@1.5.2 --site public
+          sh themes/yinyang-my-fork/scripts/build.sh
       - uses: actions/upload-pages-artifact@v4
         with:
           path: public
