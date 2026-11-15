@@ -1,0 +1,6 @@
+{{ if eq .Layout "explore" }}
+{{ $discoveryStyle := resources.Get "css/discovery.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $discoveryStyle.RelPermalink }}" integrity="{{ $discoveryStyle.Data.Integrity }}" crossorigin="anonymous" />
+{{ $discoveryScript := resources.Get "js/discovery.js" | minify | fingerprint }}
+<script src="{{ $discoveryScript.RelPermalink }}" integrity="{{ $discoveryScript.Data.Integrity }}" crossorigin="anonymous" defer></script>
+{{ end }}
