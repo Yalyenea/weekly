@@ -12,6 +12,12 @@
 
 `hugo.toml` 管理站点、双语、导航与评论配置。`themes/yinyang-my-fork/` 是与 Blog 共用的 Git 主题子模块，统一维护模板、样式、脚本和界面翻译。
 
+## 发现页
+
+`/explore/` 展示全部已发布周刊的外部链接。默认合成一个圆形点云，点击「分组」按分类分离，再点击「合拢」聚回；词云分别使用对应语言的周刊内容。
+
+新增或修改周刊后，运行 `just build` 刷新本地索引；推送 `main` 时，发布流程会自动完成更新。草稿和未来日期的周刊暂不收录。
+
 ## 构建与预览
 
 需要 Hugo 0.167.0 extended、Node.js 24、just 和 uv。首次检出后初始化主题：
@@ -22,7 +28,7 @@ just build
 just dev
 ```
 
-构建由主题的 `scripts/build.sh` 完成，依次生成 Hugo 网页和 Pagefind 搜索索引。`just dev` 先构建，再在 http://127.0.0.1:1313 预览；可用 `just dev 1314` 指定端口。修改内容后重新构建即可。
+`just build` 先重新生成周刊链接与中英文词云索引，再调用主题的 `scripts/build.sh` 生成 Hugo 网页和 Pagefind 搜索索引。`just dev` 先构建，再在 http://127.0.0.1:1313 预览；可用 `just dev 1314` 指定端口。修改内容后重新构建即可。
 
 构建产物写入 `public/`，不纳入 Git。
 

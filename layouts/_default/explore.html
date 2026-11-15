@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Locale }}">
+{{ partial "head.html" . }}
+<body>
+{{ $en := eq .Site.Language.Lang "en" }}
+<section id="discovery" class="discovery" data-index="{{ "weekly-links.json" | relURL }}" data-language="{{ .Site.Language.Lang }}" aria-labelledby="discovery-title" data-pagefind-ignore>
+  <h1 id="discovery-title" class="sr-only">{{ if $en }}Explore Weekly{{ else }}发现 Weekly{{ end }}</h1>
+  <nav class="discovery-nav" aria-label="{{ if $en }}Explore{{ else }}发现{{ end }}">
+    <a class="discovery-home" href="{{ .Site.Home.RelPermalink }}">Weekly</a>
+    <div class="discovery-views" role="group" aria-label="{{ if $en }}View{{ else }}查看方式{{ end }}">
+      <button type="button" data-view="map" aria-pressed="true">{{ if $en }}Map{{ else }}地图{{ end }}</button>
+      <button type="button" data-view="cloud" aria-pressed="false">{{ if $en }}Words{{ else }}词云{{ end }}</button>
+      <button id="group-toggle" type="button" aria-pressed="false" aria-controls="link-map" aria-label="{{ if $en }}Group links by topic{{ else }}按分类分组{{ end }}" disabled>{{ if $en }}Group{{ else }}分组{{ end }}</button>
+    </div>
+    <label class="discovery-search">
+      <span class="sr-only">{{ if $en }}Search links{{ else }}搜索链接{{ end }}</span>
+      <input id="link-search" type="search" placeholder="{{ if $en }}Search{{ else }}搜索{{ end }}" autocomplete="off" />
+    </label>
+  </nav>
+  <div class="discovery-surface" aria-busy="true">
+    <div id="map-view" class="discovery-view">
+      <canvas id="link-map" tabindex="0" role="img" aria-label="{{ if $en }}Link map. Drag to pan and scroll to zoom. Arrow keys select a link; Enter opens it. Escape resets the map.{{ else }}链接地图。拖拽平移，滚轮缩放。方向键选择链接，回车打开，Esc 重置地图。{{ end }}"></canvas>
+      <aside id="link-preview" class="link-preview" aria-live="polite" hidden>
+        <h2 id="preview-title"></h2>
+        <p id="preview-description"></p>
+        <span id="preview-domain"></span>
+      </aside>
+    </div>
+    <div id="cloud-view" class="discovery-view" hidden>
+      <div id="word-cloud" class="word-cloud" aria-label="{{ if $en }}Keywords from Weekly links{{ else }}Weekly 链接关键词{{ end }}"></div>
+    </div>
+    <p id="discovery-message" class="discovery-message" role="status" hidden></p>
+    <span id="visible-count" class="sr-only" aria-live="polite"></span>
+  </div>
+  <noscript><p class="discovery-message"><a href="{{ .Site.Home.RelPermalink }}">{{ if $en }}Read Weekly{{ else }}阅读 Weekly{{ end }}</a></p></noscript>
+</section>
+</body>
+</html>

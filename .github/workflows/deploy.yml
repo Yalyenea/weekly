@@ -30,8 +30,13 @@ jobs:
           hugo-version: "0.167.0"
           extended: true
       - uses: actions/configure-pages@v5
+      - name: Setup uv
+        uses: astral-sh/setup-uv@18d369b23da25a81e9458561248e1aafff6a70fa # v10.3.1
+        with:
+          python-version: "3.13"
       - name: Build
         run: |
+          uv run scripts/build_weekly_index.py
           sh themes/yinyang-my-fork/scripts/build.sh
       - uses: actions/upload-pages-artifact@v4
         with:

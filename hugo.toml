@@ -81,6 +81,11 @@ name = "blog"
 url = "https://blog.yfff.me/"
 weight = 10
 
+[[languages.cn.menus.main]]
+name = "发现"
+pageRef = "/explore"
+weight = 20
+
 [languages.en.params]
 searchPlaceholder = "Search issues"
 
@@ -88,3 +93,8 @@ searchPlaceholder = "Search issues"
 name = "blog"
 url = "https://blog.yfff.me/en/"
 weight = 10
+
+[[languages.en.menus.main]]
+name = "Explore"
+pageRef = "/explore"
+weight = 20
